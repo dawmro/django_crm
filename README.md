@@ -10,4 +10,7 @@ uv add pip --dev
 uv sync
 cd src
 uv run django-admin startproject dchome .
+cd ../
 uv export --no-dev --no-hashes -o requirements.txt
+uv add pre-commit
+uv run pre-commit install
