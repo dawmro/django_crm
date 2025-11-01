@@ -14,3 +14,4 @@ cd ../
 uv export --no-dev --no-hashes -o requirements.txt
 uv add pre-commit
 uv run pre-commit install
+uv add "django-googler"
