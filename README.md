@@ -10,3 +10,4 @@ uv add pip --dev
 uv sync
 cd src
 uv run django-admin startproject dchome .
+uv export --no-dev --no-hashes -o requirements.txt
