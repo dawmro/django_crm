@@ -1,11 +1,23 @@
+from django.conf import settings
 from django.shortcuts import redirect
 from django.http import HttpResponse
+import os
+from pathlib import Path
 
-# Create your views here.
+
+TEMPLATES_DIR = settings.TEMPLATES_DIR
+print("TEMPLATES_DIR", TEMPLATES_DIR, TEMPLATES_DIR.exists())
+dashboard_html = Path(os.path.join(TEMPLATES_DIR, "dashboard.html"))
+print("dashboard_html", dashboard_html, dashboard_html.exists())
 
 
 def dashboard_webpage(request, *args, **kwargs):
     print(request.user, request.user.is_authenticated)
     if not request.user.is_authenticated:
         return redirect("/auth/google/login")
-    return HttpResponse(f"hello {request.user}")
+    dashboard_html = Path(os.path.join(TEMPLATES_DIR, "dashboard.html"))
+    if not dashboard_html.exists():
+        return HttpResponse("Not Found", status=404)
+    dashboard_html_val = dashboard_html.read_text()
+    _html = dashboard_html_val.format(my_value=str(request.user))
+    return HttpResponse(_html)
