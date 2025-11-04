@@ -25,3 +25,7 @@ def dashboard_webpage(request, *args, **kwargs):
     # dashboard_html_val = dashboard_html.read_text()
     # _html = dashboard_html_val.format(my_value=str(request.user))
     # return HttpResponse(_html)
+
+
+def about_us_page(request):
+    return render(request=request, template_name="about.html")
