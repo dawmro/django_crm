@@ -23,3 +23,4 @@ python manage.py startapp contacts
 python manage.py makemigrations
 python manage.py migrate
 uv add python-dotenv
+python manage.py collectstatic

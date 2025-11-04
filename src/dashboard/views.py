@@ -1,3 +1,4 @@
+from random import randint
 from django.conf import settings
 from django.shortcuts import redirect, render
 import os
@@ -10,11 +11,15 @@ dashboard_html = Path(os.path.join(TEMPLATES_DIR, "dashboard.html"))
 print("dashboard_html", dashboard_html, dashboard_html.exists())
 
 
+def get_image(request):
+    pass
+
+
 def dashboard_webpage(request, *args, **kwargs):
     print(request.user, request.user.is_authenticated)
     if not request.user.is_authenticated:
         return redirect("/auth/google/login")
-    my_value = str(request.user)
+    my_value = str(request.user) + f" {randint(0, 100000)}"
     template_context = {"my_value": my_value}
     return render(
         request=request, template_name="dashboard.html", context=template_context
