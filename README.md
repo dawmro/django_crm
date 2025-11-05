@@ -24,4 +24,8 @@ python manage.py makemigrations
 python manage.py migrate
 uv add python-dotenv
 python manage.py collectstatic
+https://docs.djangoproject.com/en/5.2/howto/static-files/
 python manage.py collectstatic --no-input
+https://whitenoise.readthedocs.io/en/stable/django.html
+uv add rav --dev
+rav download staticfiles_dev

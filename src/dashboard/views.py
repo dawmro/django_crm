@@ -22,7 +22,7 @@ def dashboard_webpage(request, *args, **kwargs):
     my_value = str(request.user) + f" {randint(0, 100000)}"
     template_context = {"my_value": my_value}
     return render(
-        request=request, template_name="dashboard.html", context=template_context
+        request=request, template_name="dashboard/main.html", context=template_context
     )
     # dashboard_html = Path(os.path.join(TEMPLATES_DIR, "dashboard.html"))
     # if not dashboard_html.exists():
