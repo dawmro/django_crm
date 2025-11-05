@@ -18,10 +18,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from dashboard.views import dashboard_webpage
+from contacts.views import contacts_list_view
+from dashboard.views import dashboard_webpage, about_us_page
 
 urlpatterns = [
     path("", dashboard_webpage),
+    path("about/", about_us_page),
+    path("contacts/", contacts_list_view),
     path("dashboard/", dashboard_webpage),
     path("admin/", admin.site.urls),
     # Standard Django OAuth views with or without DRF)
