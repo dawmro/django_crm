@@ -29,3 +29,4 @@ python manage.py collectstatic --no-input
 https://whitenoise.readthedocs.io/en/stable/django.html
 uv add rav --dev
 rav download staticfiles_dev
+https://flowbite.com/
