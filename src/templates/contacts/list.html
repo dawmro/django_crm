@@ -2,6 +2,12 @@
 
 {% block content %}
 
-{{ object_list }}
+    {{ object_list }}
+
+    {% for object in object_list %}
+        <li> {{ object.email }}</li>
+    {% empty %}
+        <p>No contacts</p>
+    {% endfor %}
 
 {% endblock content %}
