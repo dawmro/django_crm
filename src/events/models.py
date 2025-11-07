@@ -13,7 +13,8 @@ class Event(models.Model):
     class EventType(models.TextChoices):
         # enum = "db_val", "Display value"
         CREATED = "created", "Create Event"
-        VIEWED = "viewed", "Viewed Event"
+        VIEWED = "viewed", "View Event"
+        SAVED = "saved", "Save or Update Event"
 
     user = models.ForeignKey(
         User,
