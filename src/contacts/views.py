@@ -2,7 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import Http404
 from django.shortcuts import render
 
-from events.models import Event
+from events.signals import trigger_event
 from .models import Contact
 
 
@@ -13,15 +13,19 @@ def contacts_detail_view(request, contact_id=None):
     if instance is None:
         raise Http404(f"Contact with id: {contact_id} not found")
     context = {"contact": instance}
-    Event.objects.create(
-        user=user,
-        type=Event.EventType.VIEWED,
-        content_object=instance,
-    )
-    Event.objects.create(
-        type=Event.EventType.CREATED,
-        content_object=user,
-    )
+    # Event.objects.create(
+    #     user=user,
+    #     type=Event.EventType.VIEWED,
+    #     content_object=instance,
+    # )
+    # print(instance.__class__ == Contact)
+    # event_did_trigger.send(
+    #     sender=instance.__class__,
+    #     user=user,
+    #     type=Event.EventType.VIEWED,
+    #     content_object=instance,
+    # )
+    trigger_event(instance, is_viewed=True, user=user, request=request)
     return render(request, "contacts/detail.html", context)
 
 

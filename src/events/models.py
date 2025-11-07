@@ -12,6 +12,7 @@ User = settings.AUTH_USER_MODEL
 class Event(models.Model):
     class EventType(models.TextChoices):
         # enum = "db_val", "Display value"
+        UNKNOWN = "unknown", "Unknown Event"
         CREATED = "created", "Create Event"
         VIEWED = "viewed", "View Event"
         SAVED = "saved", "Save or Update Event"
