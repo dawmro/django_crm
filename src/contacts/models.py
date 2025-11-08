@@ -1,5 +1,7 @@
+from django.contrib.contenttypes.fields import GenericRelation
 from django.conf import settings
 from django.db import models
+from events.models import Event
 
 
 User = settings.AUTH_USER_MODEL
@@ -21,6 +23,7 @@ class Contact(models.Model):
         on_delete=models.SET_NULL,
         related_name="my_contact_edits",  # user.my_contact_edits.all()
     )
+    events = GenericRelation(Event)  # contact_instance.events.all()
 
     def get_absolute_url(self):
         return f"/contacts/{self.id}/"

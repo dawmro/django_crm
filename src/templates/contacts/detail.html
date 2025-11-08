@@ -7,7 +7,12 @@
       <div class="grid gap-8 mb-6 lg:mb-16 md:grid-cols-2">
         {% include "contacts/snippets/contact-card.html" with contact=contact detail=True %}
       </div>
-      {{ analytics }}
+      <div>
+        {{ analytics }}
+      </div>
+      <div>
+        {{ reverse_events }} - {{ reverse_events.count }}
+      </div>
   </div>
 </section>
 
