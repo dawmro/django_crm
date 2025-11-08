@@ -30,3 +30,7 @@ https://whitenoise.readthedocs.io/en/stable/django.html
 uv add rav --dev
 rav download staticfiles_dev
 https://flowbite.com/
+uv add "psycopg[binary]"
+uv add dj-database-url
+uv add django-timescaledb
+Stuck at "Your service is being deployed!"

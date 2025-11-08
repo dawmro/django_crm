@@ -6,4 +6,4 @@ class ContactsConfig(AppConfig):
     name = "contacts"
 
     def ready(self):
-        pass
+        import events.handlers  # noqa
