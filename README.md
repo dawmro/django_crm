@@ -33,4 +33,8 @@ https://flowbite.com/
 uv add "psycopg[binary]"
 uv add dj-database-url
 uv add django-timescaledb
-Stuck at "Your service is being deployed!"
+Create tiger db
+python manage.py makemigrations
+python manage.py migrate
+python manage.py createsuperuser
+python manage.py runserver

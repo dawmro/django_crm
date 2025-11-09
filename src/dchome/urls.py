@@ -23,10 +23,10 @@ from dashboard.views import dashboard_webpage, about_us_page
 
 urlpatterns = [
     path("", dashboard_webpage),
+    path("dashboard/", dashboard_webpage),
     path("about/", about_us_page),
     path("contacts/<int:contact_id>/", contacts_detail_view),
     path("contacts/", contacts_list_view),
-    path("dashboard/", dashboard_webpage),
     path("admin/", admin.site.urls),
     # Standard Django OAuth views with or without DRF)
     path("auth/", include("django_googler.urls.default")),
