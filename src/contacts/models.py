@@ -24,6 +24,8 @@ class Contact(models.Model):
         related_name="my_contact_edits",  # user.my_contact_edits.all()
     )
     events = GenericRelation(Event)  # contact_instance.events.all()
+    created_at = models.DateTimeField(auto_now_add=True)
+    update_at = models.DateTimeField(auto_now=True)
 
     def get_absolute_url(self):
         return f"/contacts/{self.id}/"
