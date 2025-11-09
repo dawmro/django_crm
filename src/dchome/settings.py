@@ -29,7 +29,7 @@ DEBUG = str(os.environ.get("DJANGO_DEBUG")).lower() == "true"
 ALLOWED_HOSTS = ["*"]
 
 AUTH_USER_MODEL = "auth.User"  # default value
-LOGIN_REDIRECT = "/"
+LOGIN_REDIRECT_URL = "/"
 
 
 # Application definition
