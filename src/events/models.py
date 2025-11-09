@@ -2,6 +2,7 @@ from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 from django.conf import settings
 from django.db import models
+from timescale.db.models.models import TimescaleModel
 
 # from contacts.models import Contact
 
@@ -9,7 +10,7 @@ from django.db import models
 User = settings.AUTH_USER_MODEL
 
 
-class Event(models.Model):
+class Event(TimescaleModel):
     class EventType(models.TextChoices):
         # enum = "db_val", "Display value"
         UNKNOWN = "unknown", "Unknown Event"
@@ -30,7 +31,7 @@ class Event(models.Model):
     object_id = models.PositiveBigIntegerField()
     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
     content_object = GenericForeignKey("content_type", "object_id")
-    timestamp = models.DateTimeField(auto_now_add=True)
+    # timestamp = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         indexes = [models.Index(fields=["content_type", "object_id"])]
