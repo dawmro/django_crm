@@ -7,12 +7,16 @@
       <div class="grid gap-8 mb-6 lg:mb-16 md:grid-cols-2">
         {% include "contacts/snippets/contact-card.html" with contact=contact detail=True %}
       </div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6 ">
-      <div>
-        {% for data in analytics %}
-          <li>{{ data.bucket }} - {{ data }}</li>
-        {% endfor %}
-      </div>
   </div>
 </section>
+
+<div id="my-data">
+  {{ analytics|json_script:"analytics" }}
+</div>
+
+<script>
+  const analyticsData = JSON.parse(document.getElementById("analytics").textContent)
+  console.log(analyticsData)
+</script>
 
 {% endblock content %}
