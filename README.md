@@ -43,3 +43,4 @@ python manage.py shell
 from helpers import mygoogler
 user = User.objects.last()
 mygoogler.get_my_contacts(user)
+mygoogler.get_my_other_contacts(user)

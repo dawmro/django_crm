@@ -15,7 +15,9 @@ class Contact(models.Model):
         on_delete=models.CASCADE,
         related_name="mycontacts",  # user.mycontacts.all
     )
-    email = models.EmailField()
+    email = models.EmailField(db_index=True)
+    first_name = models.CharField(max_length=120, default="", blank=True)
+    lastfirst_name = models.CharField(max_length=120, default="", blank=True)
     notes = models.TextField(blank=True, default="")
     last_edited_by = models.ForeignKey(
         User,
