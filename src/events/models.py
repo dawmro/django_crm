@@ -15,6 +15,7 @@ class Event(TimescaleModel):
         # enum = "db_val", "Display value"
         UNKNOWN = "unknown", "Unknown Event"
         CREATED = "created", "Create Event"
+        SYNC = "sync", "Sync Event"
         VIEWED = "viewed", "View Event"
         SAVED = "saved", "Save or Update Event"
 
