@@ -1,5 +1,5 @@
 # django_crm
-[WIP] Customer Relationship Manager created using Python, Django, Google Auth Platform, Tiger Data, TimescaleDB, and more.
+[TESTING] Customer Relationship Manager created using Python, Django, Google Auth Platform, Tiger Data, TimescaleDB, and more.
 
 ## Notes
 uv python install 3.14
@@ -39,3 +39,7 @@ python manage.py migrate
 python manage.py createsuperuser
 python manage.py runserver
 uv add google-api-python-client
+python manage.py shell
+from helpers import mygoogler
+user = User.objects.last()
+mygoogler.get_my_contacts(user)

@@ -1,5 +1,6 @@
 src/mystaticfiles/vendors
 src/local-cdn
+src/contacts/samples
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
